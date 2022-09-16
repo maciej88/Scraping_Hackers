@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pprint
 
 res = requests.get('https://news.ycombinator.com/newest')
 soup = BeautifulSoup(res.text, 'html.parser')
@@ -17,4 +18,4 @@ def create_custom_hn(links, subtext):
             hn.append({'title': title, 'link': href, 'votes': points})
     return hn
 
-print(create_custom_hn(links, subtext))
+pprint.pprint(create_custom_hn(links, subtext))
